@@ -3,65 +3,234 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MyCustomStore</title>
+<title>MyCustomStore - Stampe Personalizzate</title>
 
 <style>
-body {
+* {
     margin: 0;
-    font-family: Arial;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f8f9fa;
+    color: #333;
 }
 
 /* HEADER */
 header {
-    background: black;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     color: white;
-    padding: 15px;
+    padding: 20px;
     text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+header h2 {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
 /* HERO */
 .hero {
-    background: url('https://picsum.photos/1200/400') no-repeat center;
-    background-size: cover;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     text-align: center;
-    padding: 80px 20px;
+    padding: 100px 20px;
 }
 
 .hero h1 {
-    font-size: 40px;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero p {
+    font-size: 20px;
+    font-weight: 300;
+    opacity: 0.95;
 }
 
 /* PRODOTTI */
 .products {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    gap: 20px;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .card {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
 .card img {
     width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+}
+
+.card p {
+    font-size: 24px;
+    color: #667eea;
+    font-weight: 600;
+    margin-bottom: 15px;
 }
 
 button {
-    padding: 10px;
-    background: #0078d7;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: opacity 0.3s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button:active {
+    transform: scale(0.98);
 }
 
 /* CONFIGURATOR */
 .config {
-    padding: 20px;
+    padding: 40px;
+    background: white;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.config h2 {
+    margin-bottom: 20px;
+    color: #1a1a1a;
+    text-align: center;
+}
+
+.config-item {
+    margin-bottom: 20px;
+}
+
+.config-item label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.config-item input[type="text"],
+.config-item select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.config-item input[type="text"]:focus,
+.config-item select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.product-display {
     background: #f5f5f5;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+    color: #333;
+}
+
+.product-display span {
+    color: #667eea;
+    font-weight: 700;
+}
+
+.preview {
+    background: #f0f0f0;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 20px 0;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.preview-shirt {
+    font-size: 80px;
+    margin-bottom: 10px;
+}
+
+.preview-text {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.button-group button {
+    flex: 1;
+}
+
+button.secondary {
+    background: #ddd;
+    color: #333;
+}
+
+button.secondary:hover {
+    background: #ccc;
+}
+
+footer {
+    background: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
 }
 
 </style>
@@ -71,62 +240,170 @@ button {
 <body>
 
 <header>
-    <h2>My Custom Store</h2>
+    <h2>🎨 My Custom Store</h2>
 </header>
 
 <div class="hero">
     <h1>Crea la tua maglietta</h1>
-    <p>Design unico in pochi click</p>
+    <p>✨ Design unico in pochi click ✨</p>
 </div>
 
 <section class="products">
 
 <div class="card">
-    <img src="https://picsum.photos/300/200?1">
-    <h3>T-Shirt Basic</h3>
-    <p>€20</p>
-    <button onclick="selectProduct('T-Shirt')">Personalizza</button>
+    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=250&fit=crop" alt="T-Shirt Basic">
+    <div class="card-content">
+        <h3>T-Shirt Basic</h3>
+        <p>€20</p>
+        <button onclick="selectProduct('T-Shirt Basic', 20)">Personalizza</button>
+    </div>
 </div>
 
 <div class="card">
-    <img src="https://picsum.photos/300/200?2">
-    <h3>Felpa</h3>
-    <p>€40</p>
-    <button onclick="selectProduct('Felpa')">Personalizza</button>
+    <img src="https://images.unsplash.com/photo-1556821552-5f6fa9de2ace?w=300&h=250&fit=crop" alt="Felpa">
+    <div class="card-content">
+        <h3>Felpa Premium</h3>
+        <p>€40</p>
+        <button onclick="selectProduct('Felpa Premium', 40)">Personalizza</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1578932750294-708cafdf32d7?w=300&h=250&fit=crop" alt="Polo">
+    <div class="card-content">
+        <h3>Polo Elegante</h3>
+        <p>€35</p>
+        <button onclick="selectProduct('Polo Elegante', 35)">Personalizza</button>
+    </div>
 </div>
 
 </section>
 
 <div class="config">
-    <h2>Configuratore</h2>
+    <h2>🖍️ Configuratore</h2>
 
-    <p>Prodotto scelto: <span id="product">Nessuno</span></p>
+    <div class="product-display">
+        Prodotto scelto: <span id="product">Nessuno</span>
+    </div>
 
-    <input type="text" id="textInput" placeholder="Scrivi testo">
-    <br><br>
+    <div class="preview" id="preview">
+        <p>👕 Seleziona un prodotto</p>
+    </div>
 
-    <select id="color">
-        <option>Bianco</option>
-        <option>Nero</option>
-        <option>Rosso</option>
-    </select>
+    <div class="config-item">
+        <label for="textInput">Testo da stampare:</label>
+        <input type="text" id="textInput" placeholder="Scrivi il tuo testo qui..." oninput="updatePreview()">
+    </div>
 
-    <br><br>
+    <div class="config-item">
+        <label for="color">Colore maglietta:</label>
+        <select id="color" onchange="updatePreview()">
+            <option value="white">⚪ Bianco</option>
+            <option value="black">⚫ Nero</option>
+            <option value="red">🔴 Rosso</option>
+            <option value="blue">🔵 Blu</option>
+            <option value="green">🟢 Verde</option>
+        </select>
+    </div>
 
-    <button onclick="order()">Ordina</button>
+    <div class="config-item">
+        <label for="textColor">Colore testo:</label>
+        <select id="textColor" onchange="updatePreview()">
+            <option value="black">⚫ Nero</option>
+            <option value="white">⚪ Bianco</option>
+            <option value="red">🔴 Rosso</option>
+            <option value="blue">🔵 Blu</option>
+            <option value="gold">🟡 Oro</option>
+        </select>
+    </div>
+
+    <div class="button-group">
+        <button class="secondary" onclick="reset()">Resetta</button>
+        <button onclick="order()">✅ Ordina Ora</button>
+    </div>
 </div>
 
+<footer>
+    <p>&copy; 2026 My Custom Store - Stampe Personalizzate | Fatto con ❤️</p>
+</footer>
+
 <script>
-function selectProduct(name) {
+let currentProduct = 'Nessuno';
+let currentPrice = 0;
+
+function selectProduct(name, price) {
+    currentProduct = name;
+    currentPrice = price;
     document.getElementById("product").innerText = name;
+    document.getElementById("textInput").value = '';
+    document.getElementById("color").value = 'white';
+    document.getElementById("textColor").value = 'black';
+    updatePreview();
+}
+
+function updatePreview() {
+    if (currentProduct === 'Nessuno') {
+        document.getElementById("preview").innerHTML = '<p>👕 Seleziona un prodotto</p>';
+        return;
+    }
+    
+    let text = document.getElementById("textInput").value || '(Il tuo testo qui)';
+    let color = document.getElementById("color").value;
+    let textColor = document.getElementById("textColor").value;
+    
+    const colorEmoji = {
+        'white': '⚪',
+        'black': '⚫',
+        'red': '🔴',
+        'blue': '🔵',
+        'green': '🟢'
+    };
+    
+    document.getElementById("preview").innerHTML = `
+        <div style="font-size: 80px;">${colorEmoji[color]}</div>
+        <div class="preview-text" style="color: ${textColor};">${text}</div>
+        <small style="color: #999; margin-top: 10px;">Anteprima: ${currentProduct}</small>
+    `;
+}
+
+function reset() {
+    currentProduct = 'Nessuno';
+    currentPrice = 0;
+    document.getElementById("product").innerText = 'Nessuno';
+    document.getElementById("textInput").value = '';
+    document.getElementById("color").value = 'white';
+    document.getElementById("textColor").value = 'black';
+    document.getElementById("preview").innerHTML = '<p>👕 Seleziona un prodotto</p>';
 }
 
 function order() {
-    let product = document.getElementById("product").innerText;
+    if (currentProduct === 'Nessuno') {
+        alert('⚠️ Per favore seleziona un prodotto!');
+        return;
+    }
+    
+    let product = currentProduct;
     let text = document.getElementById("textInput").value;
     let color = document.getElementById("color").value;
+    let textColor = document.getElementById("textColor").value;
+    let total = currentPrice;
+    
+    if (!text.trim()) {
+        alert('⚠️ Per favore scrivi un testo da stampare!');
+        return;
+    }
 
-    alert("Ordine:\n" + product + "\nTesto: " + text + "\nColore: " + color);
+    alert(
+        `✅ ORDINE CONFERMATO!\n\n` +
+        `📦 Prodotto: ${product}\n` +
+        `💰 Prezzo: €${total}\n` +
+        `📝 Testo: "${text}"\n` +
+        `🎨 Colore maglietta: ${color}\n` +
+        `✏️ Colore testo: ${textColor}\n\n` +
+        `Grazie per l'acquisto! 🎉`
+    );
+    
+    reset();
 }
 </script>
 
