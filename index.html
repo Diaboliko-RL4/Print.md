@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang='it'>
 <head>
+<<<<<<< Updated upstream
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Custom Store PRO</title>
@@ -83,11 +84,27 @@ input,select {
 .hidden {
     display: none;
 }
+=======
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Custom Store PRO</title>
+<style>
+body {margin:0;font-family:Arial;background:#0f172a;color:white;}
+header {background:#020617;padding:15px;text-align:center;font-size:22px;}
+.hero {text-align:center;padding:60px;background:linear-gradient(135deg,#2563eb,#9333ea);}
+.hero h1 {font-size:40px;}
+button {padding:12px;border:none;background:#22c55e;color:white;cursor:pointer;border-radius:6px;}
+.products {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;padding:20px;}
+.card {background:#1e293b;padding:15px;border-radius:10px;text-align:center;}
+.card img {width:100%;border-radius:10px;}
+.panel {background:#020617;padding:20px;margin:20px;border-radius:10px;}
+input,select {width:100%;padding:10px;margin:10px 0;border-radius:6px;border:none;}
+.hidden {display:none;}
+>>>>>>> Stashed changes
 </style>
-
 </head>
-
 <body>
+<<<<<<< Updated upstream
 
 <header>
 🔥 Custom Store PRO
@@ -191,7 +208,51 @@ function confirmOrder() {
         "Colore: " + color
     );
 }
+=======
+<header>🔥 Custom Store PRO</header>
+<div class='hero'>
+<h1>Crea la tua maglietta</h1>
+<button onclick='showLogin()'>Login / Registrati</button>
+</div>
+<div class='panel hidden' id='loginPanel'>
+<h3>Registrazione</h3>
+<input id='email' placeholder='Email'>
+<input id='password' type='password' placeholder='Password'>
+<button onclick='register()'>Registrati</button>
+</div>
+<div class='products'>
+<div class='card'>
+<img src='https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400'>
+<h3>Maglietta</h3>
+<p>€20</p>
+<button onclick="choose('Maglietta',20)">Compra</button>
+</div>
+<div class='card'>
+<img src='https://images.unsplash.com/photo-1556821552-5f6fa9de2ace?w=400'>
+<h3>Felpa</h3>
+<p>€40</p>
+<button onclick="choose('Felpa',40)">Compra</button>
+</div>
+</div>
+<div class='panel hidden' id='orderPanel'>
+<h3>Ordine</h3>
+<p>Prodotto: <span id='product'></span></p>
+<input id='text' placeholder='Testo da stampare'>
+<select id='color'><option>Bianco</option><option>Nero</option><option>Rosso</option></select>
+<button onclick='confirmOrder()'>Ordina Ora</button>
+</div>
+<script>
+let user=null;let selectedProduct="";let price=0;
+function showLogin(){document.getElementById('loginPanel').classList.remove('hidden');}
+function register(){let email=document.getElementById('email').value;if(!email){alert('Inserisci email');return;}user=email;alert('Benvenuto '+email);document.getElementById('loginPanel').classList.add('hidden');}
+function choose(name,p){if(!user){alert('Registrati prima');return;}selectedProduct=name;price=p;document.getElementById('orderPanel').classList.remove('hidden');document.getElementById('product').innerText=name;}
+function confirmOrder(){let text=document.getElementById('text').value;let color=document.getElementById('color').value;alert('ORDINE ✅
+Cliente:'+user+'
+Prodotto:'+selectedProduct+'
+Prezzo €'+price+'
+Testo:'+text+'
+Colore:'+color);} 
+>>>>>>> Stashed changes
 </script>
-
 </body>
 </html>
